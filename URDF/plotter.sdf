@@ -1,0 +1,66 @@
+<sdf version='1.11'>
+  <model name='cartesian_plotter'>
+    <link name='X_Rail'>
+      <inertial>
+        <pose>0 0 0.050000000000000003 0 0 0</pose>
+        <mass>2</mass>
+        <inertia>
+          <ixx>0.20499999999999999</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.20499999999999999</iyy>
+          <iyz>0</iyz>
+          <izz>0.20000000000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='X_Rail_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>1 1 1</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='X_Rail_fixed_joint_lump__Y_rail_collision_1'>
+        <pose>0 0 0.10000000000000001 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>1 1 1</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='X_Rail_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/x_rail.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0 0 1 1</diffuse>
+          <ambient>0 0 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='X_Rail_fixed_joint_lump__Y_rail_visual_1'>
+        <pose>0 0 0.10000000000000001 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/X_carriage_and_Y_rail.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0 0 1 1</diffuse>
+          <ambient>0 0 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <frame name='x_to_y' attached_to='X_Rail'>
+      <pose>0 0 0.10000000000000001 0 0 0</pose>
+    </frame>
+    <frame name='Y_rail' attached_to='x_to_y'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+  </model>
+</sdf>
