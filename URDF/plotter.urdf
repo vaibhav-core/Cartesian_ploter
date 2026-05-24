@@ -2,6 +2,47 @@
 
 <robot name="cartesian_plotter">
 
+  <link name="base_link">
+    <visual>
+     <material name="black">
+       <color rgba="0 0 0 1"/>
+      </material>
+
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+   
+
+      <geometry>
+    
+        <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/base_link_NEW.stl"
+              scale=".05 .05 .05"  />
+
+      </geometry>
+    </visual>
+  
+     <!-- <collision>
+
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+
+      <geometry>
+        <box size=".5 .5 .5"/>
+      </geometry>
+
+      </collision>
+      -->
+
+    <inertial>
+    
+    <mass value="1.0"/>
+
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+
+    <inertia ixx="1" ixy="0" ixz="0"
+             iyy="1" iyz="0" izz="1" />
+    
+    </inertial>
+
+  </link>
+
   <link name="X_Rail">
     <visual>
      
@@ -15,22 +56,23 @@
 
       <geometry>
 
-        <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/x_rail.stl"
-              scale=".01 .01 .01"/>
+        <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/x_rail_NEW.stl"
+              scale=".05 .05 .05"/>
 
       </geometry>
 
     </visual>
 
-    <collision>
+     <!-- <collision>
 
       <origin xyz="0 0 0" rpy="0 0 0"/>
 
       <geometry>
-        <box size="1 1 1"/>
+        <box size=".5 .5 .5"/>
       </geometry>
 
-    </collision>
+      </collision>
+-->
 
     <inertial>
 
@@ -56,22 +98,22 @@
       <origin xyz="0 0 0" rpy="0 0 0" />
 
       <geometry>
-      <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/X_carriage_and_Y_rail.stl"
-              scale=".01 .01 .01"/> 
+      <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/y_slider_NEW.stl"
+              scale=".05 .05 .05"/> 
       </geometry>
     </visual>
 
     
-      <collision>
+     <!-- <collision>
 
       <origin xyz="0 0 0" rpy="0 0 0"/>
 
       <geometry>
-        <box size="1 1 1"/>
+        <box size=".5 .5 .5"/>
       </geometry>
 
       </collision>
-
+-->
       <inertial>
 
         <mass value="1.0"/>
@@ -87,13 +129,32 @@
   
   </link>
 
-  <joint name="x_to_y" type="fixed">
+  <joint name="base_to_x" type ="fixed">
+
+    <parent link ="base_link"/>
+    <child link="X_Rail"/>
+
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+
+  </joint>
+
+  <joint name="x_to_y" type="prismatic">
 
     <parent link="X_Rail"/>
     <child link="Y_rail"/>
 
-    <origin xyz="0 0 .10" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
 
+    <axis xyz="1 0 0"/>
+
+    <limit lower="0"
+           upper="5000"
+           effort="10"
+           velocity="1"/>
   </joint>
+
+  <gazebo reference="base_link">
+    <static>true</static>
+  </gazebo>
 
 </robot>
