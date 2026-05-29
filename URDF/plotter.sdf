@@ -23,20 +23,20 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <scale>0.050000000000000003 0.050000000000000003 0.050000000000000003</scale>
+            <scale>0.01 0.01 0.01</scale>
             <uri>file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/base_link_NEW.stl</uri>
           </mesh>
         </geometry>
         <material>
-          <diffuse>0 0 0 1</diffuse>
-          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 0</diffuse>
+          <ambient>0 0 0 0</ambient>
         </material>
       </visual>
       <visual name='base_link_fixed_joint_lump__X_Rail_visual_1'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <scale>0.050000000000000003 0.050000000000000003 0.050000000000000003</scale>
+            <scale>0.01 0.01 0.01</scale>
             <uri>file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/x_rail_NEW.stl</uri>
           </mesh>
         </geometry>
@@ -51,7 +51,7 @@
       <parent>base_link</parent>
       <child>Y_rail</child>
       <axis>
-        <xyz>1 0 0</xyz>
+        <xyz>0 0 1</xyz>
         <limit>
           <lower>0</lower>
           <upper>0.5</upper>
@@ -81,10 +81,10 @@
         </inertia>
       </inertial>
       <visual name='Y_rail_visual'>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0.050000000000000003 0.040000000000000001 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <scale>0.050000000000000003 0.050000000000000003 0.050000000000000003</scale>
+            <scale>0.01 0.01 0.01</scale>
             <uri>file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/y_slider_NEW.stl</uri>
           </mesh>
         </geometry>

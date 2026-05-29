@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<!-- <?xml version="1.0"?>
 
 <robot name="cartesian_plotter">
   <link name="world"/>
@@ -6,7 +6,7 @@
   <link name="base_link">
     <visual>
      <material name="black">
-       <color rgba="0 0 0 1"/>
+       <color rgba="0 0 0 0"/>
       </material>
 
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -15,7 +15,7 @@
       <geometry>
     
         <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/base_link_NEW.stl"
-              scale=".05 .05 .05"  />
+              scale=".01 .01 .01"  />
 
       </geometry>
     </visual>
@@ -58,7 +58,7 @@
       <geometry>
 
         <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/x_rail_NEW.stl"
-              scale=".05 .05 .05"/>
+              scale=".01 .01 .01"/>
 
       </geometry>
 
@@ -96,11 +96,11 @@
       </material>
     
    
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0.05 0.04 0" rpy="0 0 0" />
 
       <geometry>
       <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/y_slider_NEW.stl"
-              scale=".05 .05 .05"/> 
+              scale=".01 .01 .01"/> 
       </geometry>
     </visual>
 
@@ -143,7 +143,7 @@
     <parent link="X_Rail"/>
     <child link="Y_rail"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <axis xyz="1 0 0"/>
+    <axis xyz="0 0 1"/>
     <limit lower="0" upper="0.5" effort="100" velocity="1"/>
     <dynamics damping="1.0" friction="0.0"/>
   </joint>
@@ -170,4 +170,4 @@
     <origin xyz="0 0 0" rpy="0 0 0"/>
 
   </joint>
-</robot>
+</robot> -->
