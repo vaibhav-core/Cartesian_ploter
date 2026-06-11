@@ -1,247 +1,150 @@
- <?xml version="1.0"?>
-
+<?xml version="1.0"?>
 <robot name="cartesian_plotter">
   <link name="world"/>
 
   <link name="base_link">
     <visual>
-     <material name="black">
-       <color rgba="0 0 0 1"/>
-      </material>
-
+      <material name="black"><color rgba="0.2 0.2 0.2 1"/></material>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-   
-
       <geometry>
-    
-        <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/base_link_NEW.stl"
-              scale=".01 .01 .01"  />
-
+        <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/base_link_NEW.stl" scale=".01 .01 .01"/>
       </geometry>
     </visual>
-  
-     <!-- <collision>
-
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-
-      <geometry>
-        <box size=".5 .5 .5"/>
-      </geometry>
-
-      </collision>
-      -->
-
     <inertial>
-    
-    <mass value="1.0"/>
-
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-
-    <inertia ixx="1" ixy="0" ixz="0"
-             iyy="1" iyz="0" izz="1" />
-    
-    </inertial>
-
-  </link>
-
-
-
-  <link name="z_rail">
-    <visual>
-     <material name="black">
-       <color rgba="0 0 0 1"/>
-      </material>
-
-      <origin xyz="0.05471 -0.07471 0.10487" rpy="0 0 0"/>
-   
-
-      <geometry>
-    
-        <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/z_cartilage_NEW.stl"
-              scale=".01 .01 .01"  />
-
-      </geometry>
-    </visual>
-  
-     <!-- <collision>
-
+      <mass value="0.3"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-
-      <geometry>
-        <box size=".5 .5 .5"/>
-      </geometry>
-
-      </collision>
-      -->
-
-    <inertial>
-    
-    <mass value="1.0"/>
-
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-
-    <inertia ixx="1" ixy="0" ixz="0"
-             iyy="1" iyz="0" izz="1" />
-    
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
     </inertial>
-
   </link>
 
   <link name="X_Rail">
     <visual>
-     
-     
-      <material name="blue">
-        <color rgba="0 0 1 1"/>
-      </material>
+      <material name="blue"><color rgba="0 0 1 1"/></material>
       <origin xyz="-0.04 -0.425 0.05" rpy="0 0 0"/>
-      
       <geometry>
-
-        <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/x_rail_NEW.stl"
-              scale=".01 .01 .01"/>
-
+        <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/x_rail_NEW.stl" scale=".01 .01 .01"/>
       </geometry>
-
     </visual>
-
-     <!-- <collision>
-
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-
-      <geometry>
-        <box size=".5 .5 .5"/>
-      </geometry>
-
-      </collision>
--->
-
     <inertial>
-
-      <mass value="1.0"/>
-
+      <mass value="0.15"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-
-      <inertia ixx="0.1" ixy="0.0" ixz="0.0"
-               iyy="0.1" iyz="0.0" izz="0.1"/>
-
+      <inertia ixx="0.005" ixy="0" ixz="0" iyy="0.005" iyz="0" izz="0.005"/>
     </inertial>
-
   </link>
 
   <link name="Y_rail">
     <visual>
-        
-      <material name="blue">
-        <color rgba="0 0 1 1"/>
-      </material>
-    
-   
+      <material name="blue"><color rgba="0 0 1 1"/></material>
       <origin xyz="0.03 -0.0124 0.095" rpy="0 0 0"/>
-
       <geometry>
-      <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/y_slider_NEW.stl"
-              scale=".01 .01 .01"/> 
+        <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/y_slider_NEW.stl" scale=".01 .01 .01"/>
       </geometry>
     </visual>
-
-    
-     <!-- <collision>
-
+    <inertial>
+      <mass value="0.15"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.005" ixy="0" ixz="0" iyy="0.005" iyz="0" izz="0.005"/>
+    </inertial>
+  </link>
 
+  <link name="z_rail">
+    <visual>
+      <material name="black"><color rgba="0.2 0.2 0.2 1"/></material>
+      <origin xyz="0.05471 -0.07471 0.10487" rpy="0 0 0"/>
       <geometry>
-        <box size=".5 .5 .5"/>
+        <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/z_cartilage_NEW.stl" scale=".01 .01 .01"/>
       </geometry>
-
-      </collision>
--->
-      <inertial>
-
-        <mass value="1.0"/>
-
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-
-        <inertia ixx="0.1" ixy="0.0" ixz="0.0"
-            iyy="0.1" iyz="0.0"
-            izz="0.1"/>
-
-       </inertial>
-  
-  
+    </visual>
+    <inertial>
+      <mass value="0.15"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.005" ixy="0" ixz="0" iyy="0.005" iyz="0" izz="0.005"/>
+    </inertial>
   </link>
 
   <link name="pen_and_holder">
     <visual>
-        
-      <material name="blue">
-        <color rgba="0 0 1 1"/>
-      </material>
-    
-   
+      <material name="blue"><color rgba="0 0 1 1"/></material>
       <origin xyz="0.0897 -0.0666 0.0670" rpy="0 0 0"/>
-
       <geometry>
-      <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/pen_holder_NEW.stl"
-              scale=".01 .01 .01"/> 
+        <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/pen_holder_NEW.stl" scale=".01 .01 .01"/>
       </geometry>
     </visual>
-
-    
-     <!-- <collision>
-
+    <inertial>
+      <mass value="0.05"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-
-      <geometry>
-        <box size=".5 .5 .5"/>
-      </geometry>
-
-      </collision>
-      -->
-      <inertial>
-
-        <mass value="1.0"/>
-
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-
-        <inertia ixx="0.1" ixy="0.0" ixz="0.0"
-            iyy="0.1" iyz="0.0"
-            izz="0.1"/>
-
-       </inertial>
-  
-  
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
   </link>
 
   <joint name="world_to_base" type="fixed">
     <parent link="world"/>
     <child link="base_link"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
 
   <joint name="base_to_x" type="fixed">
     <parent link="base_link"/>
     <child link="X_Rail"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
 
-  <joint name="x_to_y" type="fixed">
+  <joint name="x_to_y" type="prismatic">
     <parent link="X_Rail"/>
     <child link="Y_rail"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper=".2" effort="100" velocity=".2"/>
   </joint>
 
-  <joint name="y_to_z" type="fixed">
+  <joint name="y_and_z" type="prismatic">
     <parent link="Y_rail"/>
     <child link="z_rail"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-  </joint> 
-
-  <joint name="z_to_pen" type="fixed">
-    <parent link="z_rail"/>
-    <child link="pen_and_holder"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper=".2" effort="100" velocity=".2"/>
   </joint>
 
+  <joint name="z_and_holder" type="prismatic">
+    <parent link="z_rail"/>
+    <child link="pen_and_holder"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0" upper=".2" effort="100" velocity=".2"/>
+  </joint>
+
+  <gazebo>
+    <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+      <joint_name>x_to_y</joint_name>
+      <topic>/model/cartesian_plotter/joint/x_to_y/cmd_pos</topic>
+      <p_gain>5</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>4.5</d_gain>
+      <cmd_max>100</cmd_max>
+      <cmd_min>-100</cmd_min>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+      <joint_name>y_and_z</joint_name>
+      <topic>/model/cartesian_plotter/joint/y_and_z/cmd_pos</topic>
+      <p_gain>5</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>4.5</d_gain>
+      <cmd_max>100</cmd_max>
+      <cmd_min>-100</cmd_min>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+      <joint_name>z_and_holder</joint_name>
+      <topic>/model/cartesian_plotter/joint/z_and_holder/cmd_pos</topic>
+      <p_gain>5</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>4.5</d_gain>
+      <cmd_max>100</cmd_max>
+      <cmd_min>-100</cmd_min>
+    </plugin>
+  </gazebo>
 
 </robot>

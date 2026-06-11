@@ -9,14 +9,14 @@
       <pose relative_to='world_to_base'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>5</mass>
+        <mass>0.45000000000000001</mass>
         <inertia>
-          <ixx>2.2999999999999998</ixx>
+          <ixx>0.014999999999999999</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>2.2999999999999998</iyy>
+          <iyy>0.014999999999999999</iyy>
           <iyz>0</iyz>
-          <izz>2.2999999999999998</izz>
+          <izz>0.014999999999999999</izz>
         </inertia>
       </inertial>
       <visual name='base_link_visual'>
@@ -28,8 +28,8 @@
           </mesh>
         </geometry>
         <material>
-          <diffuse>0 0 0 1</diffuse>
-          <ambient>0 0 0 1</ambient>
+          <diffuse>0.25 0.25 0.25 1</diffuse>
+          <ambient>0.25 0.25 0.25 1</ambient>
         </material>
       </visual>
       <visual name='base_link_fixed_joint_lump__X_Rail_visual_1'>
@@ -45,7 +45,40 @@
           <ambient>0 0 1 1</ambient>
         </material>
       </visual>
-      <visual name='base_link_fixed_joint_lump__Y_rail_visual_2'>
+    </link>
+    <joint name='x_to_y' type='prismatic'>
+      <pose relative_to='base_link'>0 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>Y_rail</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.20000000000000001</upper>
+          <effort>100</effort>
+          <velocity>0.20000000000000001</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Y_rail'>
+      <pose relative_to='x_to_y'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.14999999999999999</mass>
+        <inertia>
+          <ixx>0.0050000000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0050000000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.0050000000000000001</izz>
+        </inertia>
+      </inertial>
+      <visual name='Y_rail_visual'>
         <pose>0.029999999999999999 -0.0124 0.095000000000000001 0 0 0</pose>
         <geometry>
           <mesh>
@@ -58,7 +91,40 @@
           <ambient>0 0 1 1</ambient>
         </material>
       </visual>
-      <visual name='base_link_fixed_joint_lump__z_rail_visual_3'>
+    </link>
+    <joint name='y_and_z' type='prismatic'>
+      <pose relative_to='Y_rail'>0 0 0 0 0 0</pose>
+      <parent>Y_rail</parent>
+      <child>z_rail</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.20000000000000001</upper>
+          <effort>100</effort>
+          <velocity>0.20000000000000001</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='z_rail'>
+      <pose relative_to='y_and_z'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.14999999999999999</mass>
+        <inertia>
+          <ixx>0.0050000000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0050000000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.0050000000000000001</izz>
+        </inertia>
+      </inertial>
+      <visual name='z_rail_visual'>
         <pose>0.054710000000000002 -0.074709999999999999 0.10487 0 0 0</pose>
         <geometry>
           <mesh>
@@ -67,12 +133,45 @@
           </mesh>
         </geometry>
         <material>
-          <diffuse>0 0 0 1</diffuse>
-          <ambient>0 0 0 1</ambient>
+          <diffuse>0.25 0.25 0.25 1</diffuse>
+          <ambient>0.25 0.25 0.25 1</ambient>
         </material>
       </visual>
-      <visual name='base_link_fixed_joint_lump__pen_and_holder_visual_4'>
-        <pose>8.9700000000000006 -6.6600000000000001 6.7000000000000002 0 0 0</pose>
+    </link>
+    <joint name='z_and_holder' type='prismatic'>
+      <pose relative_to='z_rail'>0 0 0 0 0 0</pose>
+      <parent>z_rail</parent>
+      <child>pen_and_holder</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.20000000000000001</upper>
+          <effort>100</effort>
+          <velocity>0.20000000000000001</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='pen_and_holder'>
+      <pose relative_to='z_and_holder'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.050000000000000003</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <visual name='pen_and_holder_visual'>
+        <pose>0.089700000000000002 -0.066600000000000006 0.067000000000000004 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
@@ -85,24 +184,33 @@
         </material>
       </visual>
     </link>
-    <frame name='z_to_pen' attached_to='z_rail'>
-      <pose>0 0 0 0 0 0</pose>
-    </frame>
-    <frame name='pen_and_holder' attached_to='z_to_pen'>
-      <pose>0 0 0 0 0 0</pose>
-    </frame>
-    <frame name='y_to_z' attached_to='Y_rail'>
-      <pose>0 0 0 0 0 0</pose>
-    </frame>
-    <frame name='z_rail' attached_to='y_to_z'>
-      <pose>0 0 0 0 0 0</pose>
-    </frame>
-    <frame name='x_to_y' attached_to='X_Rail'>
-      <pose>0 0 0 0 0 0</pose>
-    </frame>
-    <frame name='Y_rail' attached_to='x_to_y'>
-      <pose>0 0 0 0 0 0</pose>
-    </frame>
+    <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+      <joint_name>x_to_y</joint_name>
+      <topic>/model/cartesian_plotter/joint/x_to_y/cmd_pos</topic>
+      <p_gain>5</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>4.5</d_gain>
+      <cmd_max>100</cmd_max>
+      <cmd_min>-100</cmd_min>
+    </plugin>
+    <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+      <joint_name>y_and_z</joint_name>
+      <topic>/model/cartesian_plotter/joint/y_and_z/cmd_pos</topic>
+      <p_gain>5</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>4.5</d_gain>
+      <cmd_max>100</cmd_max>
+      <cmd_min>-100</cmd_min>
+    </plugin>
+    <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
+      <joint_name>z_and_holder</joint_name>
+      <topic>/model/cartesian_plotter/joint/z_and_holder/cmd_pos</topic>
+      <p_gain>5</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>4.5</d_gain>
+      <cmd_max>100</cmd_max>
+      <cmd_min>-100</cmd_min>
+    </plugin>
     <frame name='base_to_x' attached_to='base_link'>
       <pose>0 0 0 0 0 0</pose>
     </frame>
