@@ -1,0 +1,20 @@
+digraph G {
+node [shape=box];
+"world" [label="world"];
+"base_link" [label="base_link"];
+"X_Rail" [label="X_Rail"];
+"Y_rail" [label="Y_rail"];
+"z_rail" [label="z_rail"];
+"pen_and_holder" [label="pen_and_holder"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"world" -> "world_to_base" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"world_to_base" -> "base_link"
+"base_link" -> "base_to_x" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_to_x" -> "X_Rail"
+"X_Rail" -> "x_to_y" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"x_to_y" -> "Y_rail"
+"Y_rail" -> "y_to_z" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"y_to_z" -> "z_rail"
+"z_rail" -> "z_to_pen" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"z_to_pen" -> "pen_and_holder"
+}

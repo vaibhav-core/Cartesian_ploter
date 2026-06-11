@@ -9,14 +9,14 @@
       <pose relative_to='world_to_base'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>2</mass>
+        <mass>5</mass>
         <inertia>
-          <ixx>1.1000000000000001</ixx>
+          <ixx>2.2999999999999998</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1.1000000000000001</iyy>
+          <iyy>2.2999999999999998</iyy>
           <iyz>0</iyz>
-          <izz>1.1000000000000001</izz>
+          <izz>2.2999999999999998</izz>
         </inertia>
       </inertial>
       <visual name='base_link_visual'>
@@ -28,12 +28,12 @@
           </mesh>
         </geometry>
         <material>
-          <diffuse>0 0 0 0</diffuse>
-          <ambient>0 0 0 0</ambient>
+          <diffuse>0 0 0 1</diffuse>
+          <ambient>0 0 0 1</ambient>
         </material>
       </visual>
       <visual name='base_link_fixed_joint_lump__X_Rail_visual_1'>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>-0.040000000000000001 -0.42499999999999999 0.050000000000000003 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
@@ -45,43 +45,8 @@
           <ambient>0 0 1 1</ambient>
         </material>
       </visual>
-    </link>
-    <joint name='x_to_y' type='prismatic'>
-      <pose relative_to='base_link'>0 0 0 0 0 0</pose>
-      <parent>base_link</parent>
-      <child>Y_rail</child>
-      <axis>
-        <xyz>0 0 1</xyz>
-        <limit>
-          <lower>0</lower>
-          <upper>0.5</upper>
-          <effort>100</effort>
-          <velocity>1</velocity>
-        </limit>
-        <dynamics>
-          <damping>1</damping>
-          <friction>0</friction>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-      </axis>
-    </joint>
-    <link name='Y_rail'>
-      <pose relative_to='x_to_y'>0 0 0 0 0 0</pose>
-      <inertial>
-        <pose>0 0 0 0 0 0</pose>
-        <mass>1</mass>
-        <inertia>
-          <ixx>0.10000000000000001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.10000000000000001</iyy>
-          <iyz>0</iyz>
-          <izz>0.10000000000000001</izz>
-        </inertia>
-      </inertial>
-      <visual name='Y_rail_visual'>
-        <pose>0.050000000000000003 0.040000000000000001 0 0 0 0</pose>
+      <visual name='base_link_fixed_joint_lump__Y_rail_visual_2'>
+        <pose>0.029999999999999999 -0.0124 0.095000000000000001 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>0.01 0.01 0.01</scale>
@@ -93,17 +58,51 @@
           <ambient>0 0 1 1</ambient>
         </material>
       </visual>
+      <visual name='base_link_fixed_joint_lump__z_rail_visual_3'>
+        <pose>0.054710000000000002 -0.074709999999999999 0.10487 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/z_cartilage_NEW.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+          <ambient>0 0 0 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__pen_and_holder_visual_4'>
+        <pose>8.9700000000000006 -6.6600000000000001 6.7000000000000002 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.01 0.01 0.01</scale>
+            <uri>file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/pen_holder_NEW.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0 0 1 1</diffuse>
+          <ambient>0 0 1 1</ambient>
+        </material>
+      </visual>
     </link>
-    <plugin name='gz::sim::systems::JointPositionController' filename='gz-sim-joint-position-controller-system'>
-      <joint_name>x_to_y</joint_name>
-      <p_gain>10</p_gain>
-      <i_gain>0.01</i_gain>
-      <d_gain>1.0</d_gain>
-      <i_max>1</i_max>
-      <i_min>-1</i_min>
-      <cmd_max>100</cmd_max>
-      <cmd_min>-100</cmd_min>
-    </plugin>
+    <frame name='z_to_pen' attached_to='z_rail'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='pen_and_holder' attached_to='z_to_pen'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='y_to_z' attached_to='Y_rail'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='z_rail' attached_to='y_to_z'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='x_to_y' attached_to='X_Rail'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='Y_rail' attached_to='x_to_y'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
     <frame name='base_to_x' attached_to='base_link'>
       <pose>0 0 0 0 0 0</pose>
     </frame>
