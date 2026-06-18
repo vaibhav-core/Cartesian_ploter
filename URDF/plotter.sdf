@@ -8,17 +8,25 @@
     <link name='base_link'>
       <pose relative_to='world_to_base'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 0 0</pose>
-        <mass>0.45000000000000001</mass>
+        <pose>0 0 0.0031250000000000002 0 0 0</pose>
+        <mass>0.47999999999999998</mass>
         <inertia>
-          <ixx>0.014999999999999999</ixx>
+          <ixx>0.0160703125</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.014999999999999999</iyy>
+          <iyy>0.0160703125</iyy>
           <iyz>0</iyz>
-          <izz>0.014999999999999999</izz>
+          <izz>0.016</izz>
         </inertia>
       </inertial>
+      <collision name='base_link_fixed_joint_lump__paper_collision'>
+        <pose>0 0 0.050000000000000003 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.29699999999999999 0.20999999999999999 0.001</size>
+          </box>
+        </geometry>
+      </collision>
       <visual name='base_link_visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -28,8 +36,8 @@
           </mesh>
         </geometry>
         <material>
-          <diffuse>0.25 0.25 0.25 1</diffuse>
-          <ambient>0.25 0.25 0.25 1</ambient>
+          <diffuse>0.187500015 0.187500015 0.187500015 1</diffuse>
+          <ambient>0.187500015 0.187500015 0.187500015 1</ambient>
         </material>
       </visual>
       <visual name='base_link_fixed_joint_lump__X_Rail_visual_1'>
@@ -41,8 +49,20 @@
           </mesh>
         </geometry>
         <material>
-          <diffuse>0 0 1 1</diffuse>
-          <ambient>0 0 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__paper_visual_2'>
+        <pose>0 0 0.050000000000000003 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.29699999999999999 0.20999999999999999 0.001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1 0 1 1</diffuse>
+          <ambient>1 0 1 1</ambient>
         </material>
       </visual>
     </link>
@@ -87,8 +107,8 @@
           </mesh>
         </geometry>
         <material>
-          <diffuse>0 0 1 1</diffuse>
-          <ambient>0 0 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
         </material>
       </visual>
     </link>
@@ -133,8 +153,8 @@
           </mesh>
         </geometry>
         <material>
-          <diffuse>0.25 0.25 0.25 1</diffuse>
-          <ambient>0.25 0.25 0.25 1</ambient>
+          <diffuse>0.187500015 0.187500015 0.187500015 1</diffuse>
+          <ambient>0.187500015 0.187500015 0.187500015 1</ambient>
         </material>
       </visual>
     </link>
@@ -179,8 +199,8 @@
           </mesh>
         </geometry>
         <material>
-          <diffuse>0 0 1 1</diffuse>
-          <ambient>0 0 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
         </material>
       </visual>
     </link>
@@ -215,6 +235,12 @@
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='X_Rail' attached_to='base_to_x'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='pen and base' attached_to='base_link'>
+      <pose>0 0 0.050000000000000003 0 0 0</pose>
+    </frame>
+    <frame name='paper' attached_to='pen and base'>
       <pose>0 0 0 0 0 0</pose>
     </frame>
   </model>

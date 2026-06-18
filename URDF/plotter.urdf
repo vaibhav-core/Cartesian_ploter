@@ -1,10 +1,12 @@
 <?xml version="1.0"?>
 <robot name="cartesian_plotter">
+
+<!--              -BASE AND WORLD LINKS-           -->
   <link name="world"/>
 
   <link name="base_link">
     <visual>
-      <material name="black"><color rgba="0.2 0.2 0.2 1"/></material>
+      <material name="black"><color rgba="0.15 0.15 0.15 1"/></material>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/base_link_NEW.stl" scale=".01 .01 .01"/>
@@ -17,9 +19,11 @@
     </inertial>
   </link>
 
+<!--                X_RAIL                      -->
+
   <link name="X_Rail">
     <visual>
-      <material name="blue"><color rgba="0 0 1 1"/></material>
+      <material name="blue"><color rgba="0.8 0.8 0.8 1"/></material>
       <origin xyz="-0.04 -0.425 0.05" rpy="0 0 0"/>
       <geometry>
         <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/x_rail_NEW.stl" scale=".01 .01 .01"/>
@@ -32,9 +36,11 @@
     </inertial>
   </link>
 
+<!--                Y_RAIL                      -->
+
   <link name="Y_rail">
     <visual>
-      <material name="blue"><color rgba="0 0 1 1"/></material>
+      <material name="blue"><color rgba="0.8 0.8 0.8 1"/></material>
       <origin xyz="0.03 -0.0124 0.095" rpy="0 0 0"/>
       <geometry>
         <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/y_slider_NEW.stl" scale=".01 .01 .01"/>
@@ -47,9 +53,11 @@
     </inertial>
   </link>
 
+<!--                Z_RAIL                      -->
+
   <link name="z_rail">
     <visual>
-      <material name="black"><color rgba="0.2 0.2 0.2 1"/></material>
+      <material name="black"><color rgba="0.8 0.8 0.8 1"/></material>
       <origin xyz="0.05471 -0.07471 0.10487" rpy="0 0 0"/>
       <geometry>
         <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/z_cartilage_NEW.stl" scale=".01 .01 .01"/>
@@ -62,9 +70,31 @@
     </inertial>
   </link>
 
+<!--                PAPER                      -->
+
+  <link name="paper">
+    <visual>
+      <material name="paper"><color rgba="1 0 1 1"/></material>
+      <origin xyz="0 0 0" rpy ="0 0 0"/>
+     <geometry><box size="0.297 0.210 0.001"/></geometry>
+    </visual>
+    
+    <collision>
+      <geometry><box size="0.297 0.210 0.001"/></geometry>
+    </collision>
+
+    <inertial>
+      <mass value="0.03"/>
+      <inertia ixx="0.001" iyy="0.001" izz="0.001"
+               ixy="0" ixz="0" iyz="0" />
+    </inertial>
+  </link>
+
+<!--                PEN AND HOLDER                      -->
+
   <link name="pen_and_holder">
     <visual>
-      <material name="blue"><color rgba="0 0 1 1"/></material>
+      <material name="blue"><color rgba="1 0.4 0 1"/></material>
       <origin xyz="0.0897 -0.0666 0.0670" rpy="0 0 0"/>
       <geometry>
         <mesh filename="file:///home/vaibhav/programming_projects/Robotics/Cartesian_ploter/Meshes/pen_holder_NEW.stl" scale=".01 .01 .01"/>
@@ -76,6 +106,8 @@
       <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
     </inertial>
   </link>
+
+<!--                JOINTS                      -->
 
   <joint name="world_to_base" type="fixed">
     <parent link="world"/>
@@ -107,6 +139,15 @@
     <axis xyz="0 0 1"/>
     <limit lower="0" upper=".2" effort="100" velocity=".2"/>
   </joint>
+
+  <joint name="pen and base" type ="fixed">
+
+    <parent link="base_link"/>
+    <child link="paper"/>
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+  </joint>
+
+<!--               PLUGINS                      -->
 
   <gazebo>
     <plugin filename="gz-sim-joint-position-controller-system"
